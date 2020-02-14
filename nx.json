@@ -1,0 +1,28 @@
+{
+  "npmScope": "gemography",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "challenge": {
+      "tags": []
+    },
+    "challenge-e2e": {
+      "tags": [],
+      "implicitDependencies": ["challenge"]
+    },
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    }
+  }
+}
