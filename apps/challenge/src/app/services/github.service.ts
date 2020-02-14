@@ -14,4 +14,9 @@ export class GithubService {
     const searchEndpoint = `${this.apiBase}/search/repositories?q=created:>${date}&sort=stars&order=desc`;
     return this.http.get(searchEndpoint);
   }
+
+  getUserRepos(name: string){
+    const searchEndpoint = `${this.apiBase}/users/${name}/repos`;
+    return this.http.get(searchEndpoint);
+  }
 }
