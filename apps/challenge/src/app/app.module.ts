@@ -17,7 +17,7 @@ const routes:Routes = [
 ]
 
 @NgModule({
-  declarations: [AppComponent, TopReposComponent, HomeComponent, SideNnavComponent],
+  declarations: [AppComponent, TopReposComponent, HomeComponent, SideNavComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
