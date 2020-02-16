@@ -4,6 +4,7 @@
     "source": "/"
   },
   "hosting": {
+    "predeploy": "npm run build",
     "public": "dist/apps/challenge",
     "ignore": [
       "firebase.json",
