@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'gemography-home',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private readonly http: HttpClient) { }
+  markdown: string;
   ngOnInit(): void {
+    // this.http.get('https://github.com/mouadcherkaoui/gemo-challenge/raw/master/README.md')
+    //   .subscribe(res => {
+    //     console.log(res);
+    //   })
   }
 
 }
