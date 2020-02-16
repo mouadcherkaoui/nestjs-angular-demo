@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GithubService } from '../../services/github.service';
 import { NestApiService } from '../../services/nest-api.service';
 import { map, tap } from 'rxjs/operators';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'gemography-top-repos',
@@ -11,13 +12,19 @@ import { map, tap } from 'rxjs/operators';
 export class TopReposComponent implements OnInit {
   repos: Array<item>;
   selectedRepo = null;
-  constructor(private readonly ghSvc: GithubService, private readonly apiSvc: NestApiService) { }
+  constructor(private readonly ghSvc: GithubService,
+    private readonly apiSvc: NestApiService) { }
 
   ngOnInit(): void {
     // this.ghSvc.getTopRepos(this.back30Days())
     //   .subscribe((v:any) => this.repos = v.items);
-    this.apiSvc.getTopRepos(this.back30Days())
-      .subscribe((v:any) => this.repos = v.items);
+    if(environment.production){
+      this.ghSvc.getTopRepos(this.back30Days())
+        .subscribe((v:any) => this.repos = v.items);
+    }else {
+      this.apiSvc.getTopRepos(this.back30Days())
+        .subscribe((v:any) => this.repos = v.items);
+    }
   }
 
   back30Days() {
