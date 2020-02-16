@@ -1,0 +1,30 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+variables:
+- group: firebase-variables
+trigger:
+- develop
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '8.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+  displayName: 'npm install packages'
+
+- script: |
+    nx build api
+  displayName: 'nx build api project'
+
+
+- script: |
+    ./node_modules/.bin/firebase deploy --token $(FIREBASE_TOKEN) --only functions
+  displayName: 'deploy to firebase'

@@ -1,0 +1,78 @@
+[debug] [2020-02-16T07:43:46.649Z] ----------------------------------------------------------------------
+[debug] [2020-02-16T07:43:46.653Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Administrator\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-02-16T07:43:46.653Z] CLI Version:   7.12.1
+[debug] [2020-02-16T07:43:46.653Z] Platform:      win32
+[debug] [2020-02-16T07:43:46.653Z] Node Version:  v12.14.1
+[debug] [2020-02-16T07:43:46.669Z] Time:          Sun Feb 16 2020 08:43:46 GMT+0100 (GMT+01:00)
+[debug] [2020-02-16T07:43:46.669Z] ----------------------------------------------------------------------
+[debug] [2020-02-16T07:43:46.670Z] 
+[debug] [2020-02-16T07:43:46.710Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-02-16T07:43:46.712Z] > authorizing via signed-in user
+[debug] [2020-02-16T07:43:46.713Z] [iam] checking project gemo-challenge for permissions ["firebase.projects.get"]
+[debug] [2020-02-16T07:43:46.717Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-02-16T07:43:46.717Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-02-16T07:43:48.150Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-16T07:43:48.167Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/gemo-challenge:testIamPermissions  
+
+[debug] [2020-02-16T07:43:50.425Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-16T07:43:50.427Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/gemo-challenge  
+ 
+[debug] [2020-02-16T07:43:52.206Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Administrator\source\gemalto-challenge\gemography'...
+[info] 
+[debug] [2020-02-16T07:43:52.243Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/gemo-challenge/webApps/-/config  
+ 
+[debug] [2020-02-16T07:43:53.872Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: dist/apps/challenge
+[info] +  hosting: Local server: http://localhost:5000
+[warn] !  Your requested "node" version "8" doesn't match your global version "12"
+[info] +  functions: Emulator started at http://localhost:5001
+[info] i  functions: Watching "C:\Users\Administrator\source\gemalto-challenge\gemography\" for Cloud Functions...
+[debug] [2020-02-16T07:43:54.792Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-02-16T07:43:54.792Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-02-16T07:43:54.792Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-02-16T07:43:54.793Z] [worker-~diagnostic~-d26e5d97-391b-4afa-bf11-827020a67bdf]: Assigning socketPath: \\?\pipe\C:\Users\Administrator\source\gemalto-challenge\gemography\23632
+[debug] [2020-02-16T07:43:54.794Z] [worker-~diagnostic~-d26e5d97-391b-4afa-bf11-827020a67bdf]: BUSY
+[debug] [2020-02-16T07:43:56.273Z] [runtime-status] [23632] Functions runtime initialized. {"cwd":"C:\\Users\\Administrator\\source\\gemalto-challenge\\gemography","node_version":"12.14.1"}
+[debug] [2020-02-16T07:43:56.282Z] [runtime-status] [23632] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-16T07:43:56.692Z] [runtime-status] [23632] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"C:\\Users\\Administrator\\source\\gemalto-challenge\\gemography\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-02-16T07:43:56.981Z] [runtime-status] [23632] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Administrator\\source\\gemalto-challenge\\gemography\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-02-16T07:43:56.983Z] [runtime-status] [23632] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Administrator\\source\\gemalto-challenge\\gemography\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] >  [Nest] 23632   - 02/16/2020, 8:44:02 AM   [NestFactory] Starting Nest application...
+[debug] [2020-02-16T07:44:03.056Z] [worker-~diagnostic~-d26e5d97-391b-4afa-bf11-827020a67bdf]: IDLE
+[info] >  [Nest] 23632   - 02/16/2020, 8:44:02 AM   [InstanceLoader] HttpModule dependencies initialized +33ms
+[info] >  [Nest] 23632   - 02/16/2020, 8:44:02 AM   [InstanceLoader] AppModule dependencies initialized +1ms
+[info] >  [Nest] 23632   - 02/16/2020, 8:44:03 AM   [RoutesResolver] AppController {/api/}: +179ms
+[info] >  [Nest] 23632   - 02/16/2020, 8:44:03 AM   [RouterExplorer] Mapped {/hello, GET} route +5ms
+[info] >  [Nest] 23632   - 02/16/2020, 8:44:03 AM   [RouterExplorer] Mapped {/toprepos, GET} route +1ms
+[info] >  [Nest] 23632   - 02/16/2020, 8:44:03 AM   [RouterExplorer] Mapped {/users/:name/repos, GET} route +1ms
+[info] >  [Nest] 23632   - 02/16/2020, 8:44:03 AM   [NestApplication] Nest application successfully started +4ms
+[info] >  Listening at http://localhost:3333/api
+[debug] [2020-02-16T07:50:56.724Z] File C:\Users\Administrator\source\gemalto-challenge\gemography\azure-pipelines.yml changed, reloading triggers
+[debug] [2020-02-16T07:50:57.729Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-02-16T07:50:57.729Z] [worker-~diagnostic~-d26e5d97-391b-4afa-bf11-827020a67bdf]: FINISHING
+[debug] [2020-02-16T07:50:57.765Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-02-16T07:50:57.765Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-02-16T07:50:57.765Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-02-16T07:50:57.766Z] [worker-~diagnostic~-37ec7485-4c1c-433b-9194-eda48114b720]: Assigning socketPath: \\?\pipe\C:\Users\Administrator\source\gemalto-challenge\gemography\22084
+[debug] [2020-02-16T07:50:57.767Z] [worker-~diagnostic~-37ec7485-4c1c-433b-9194-eda48114b720]: BUSY
+[debug] [2020-02-16T07:50:57.773Z] [worker-~diagnostic~-d26e5d97-391b-4afa-bf11-827020a67bdf]: exited
+[debug] [2020-02-16T07:50:57.774Z] [worker-~diagnostic~-d26e5d97-391b-4afa-bf11-827020a67bdf]: FINISHED
+[debug] [2020-02-16T07:50:59.838Z] [runtime-status] [22084] Functions runtime initialized. {"cwd":"C:\\Users\\Administrator\\source\\gemalto-challenge\\gemography","node_version":"12.14.1"}
+[debug] [2020-02-16T07:50:59.839Z] [runtime-status] [22084] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-16T07:50:59.846Z] [runtime-status] [22084] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"C:\\Users\\Administrator\\source\\gemalto-challenge\\gemography\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-02-16T07:50:59.853Z] [runtime-status] [22084] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Administrator\\source\\gemalto-challenge\\gemography\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-02-16T07:50:59.855Z] [runtime-status] [22084] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Administrator\\source\\gemalto-challenge\\gemography\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] >  [Nest] 22084   - 02/16/2020, 8:51:03 AM   [NestFactory] Starting Nest application...
+[debug] [2020-02-16T07:51:03.697Z] [worker-~diagnostic~-37ec7485-4c1c-433b-9194-eda48114b720]: IDLE
+[info] >  [Nest] 22084   - 02/16/2020, 8:51:03 AM   [InstanceLoader] HttpModule dependencies initialized +45ms
+[info] >  [Nest] 22084   - 02/16/2020, 8:51:03 AM   [InstanceLoader] AppModule dependencies initialized +2ms
+[info] >  [Nest] 22084   - 02/16/2020, 8:51:04 AM   [RoutesResolver] AppController {/api/}: +372ms
+[info] >  [Nest] 22084   - 02/16/2020, 8:51:04 AM   [RouterExplorer] Mapped {/hello, GET} route +4ms
+[info] >  [Nest] 22084   - 02/16/2020, 8:51:04 AM   [RouterExplorer] Mapped {/toprepos, GET} route +1ms
+[info] >  [Nest] 22084   - 02/16/2020, 8:51:04 AM   [RouterExplorer] Mapped {/users/:name/repos, GET} route +2ms
+[info] >  [Nest] 22084   - 02/16/2020, 8:51:04 AM   [NestApplication] Nest application successfully started +4ms
+[info] >  Listening at http://localhost:3333/api
+[debug] [2020-02-16T07:51:17.518Z] File C:\Users\Administrator\source\gemalto-challenge\gemography\azure-pipelines.yml changed, reloading triggers
