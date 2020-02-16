@@ -45,7 +45,7 @@ async function bootstrap() {
   });
 }
 
-// bootstrap();
+bootstrap();
 
 const expressServer = express();
 
