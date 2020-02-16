@@ -85,7 +85,7 @@
     "firebase-tools": "^7.12.1"
   },
   "engines": {
-    "node": "8"
+    "node": "10"
   },
   "main": "dist/apps/api/main.js"
 }
