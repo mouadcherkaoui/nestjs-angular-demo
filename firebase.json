@@ -1,6 +1,6 @@
 {
   "functions": {
-    "predeploy": "npm run nx:build:api",
+    "predeploy": "npm run build:api",
     "source": "/"
   },
   "hosting": {
