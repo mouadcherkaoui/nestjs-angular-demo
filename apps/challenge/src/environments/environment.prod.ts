@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API_URL: 'http://localhost:3333/api'
+  API_URL: 'https://us-central1-gemo-challenge.cloudfunctions.net/api'
 };
