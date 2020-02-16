@@ -25,7 +25,7 @@ function configureAppMiddlewares(app: INestApplication){
     .build();
 
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('', app, document);
 
   app.enableCors();
 }
@@ -54,7 +54,7 @@ const createFunction =
     const app = await NestFactory.create(
       AppModule,
       new ExpressAdapter(expressInstance));
-      
+
     configureAppMiddlewares(app);
 
     await app.init();
