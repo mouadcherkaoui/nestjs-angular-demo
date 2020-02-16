@@ -4,15 +4,19 @@
  */
 
 import { NestFactory } from '@nestjs/core';
+import { ExpressAdapter } from '@nestjs/platform-express';
 
-import { AppModule } from './app/app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  const globalPrefix = 'api';
+import * as express from 'express';
+import * as functions from 'firebase-functions'
 
-  app.setGlobalPrefix(globalPrefix);
+import { AppModule } from './app/app.module';
+import { INestApplication } from '@nestjs/common';
+
+
+function configureAppMiddlewares(app: INestApplication){
+
   const options = new   DocumentBuilder()
     .setTitle('Gemo-Challenge Api')
     .setDescription('Gemography Challenge api over NestJs server')
@@ -24,11 +28,40 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document);
 
   app.enableCors();
+}
+
+async function bootstrap() {
+  const globalPrefix = 'api';
   const port = process.env.port || 3333;
+
+  const app = await NestFactory.create(AppModule);
+
+  app.setGlobalPrefix(globalPrefix);
+
+  configureAppMiddlewares(app);
 
   await app.listen(port, () => {
     console.log('Listening at http://localhost:' + port + '/' + globalPrefix);
   });
 }
 
-bootstrap();
+// bootstrap();
+
+const expressServer = express();
+
+const createFunction =
+  async (expressInstance): Promise<void> =>{
+    const app = await NestFactory.create(
+      AppModule,
+      new ExpressAdapter(expressInstance));
+      
+    configureAppMiddlewares(app);
+
+    await app.init();
+  };
+
+createFunction(expressServer)
+  .then(()=> console.log("Nest is ready"))
+  .catch(err => console.error("Something went wrong!! ", err));
+
+export const api = functions.https.onRequest(expressServer);

@@ -1,9 +1,10 @@
 {
   "functions": {
-    "predeploy": "npm run build:api",
-    "source": "/"
+    "source": "/",
+    "predeploy": "npm run build:api"
   },
   "hosting": {
+    "predeploy": "npm run ng:build:prod",
     "public": "dist/apps/challenge",
     "ignore": [
       "firebase.json",
