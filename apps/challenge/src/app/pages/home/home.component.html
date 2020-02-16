@@ -1,10 +1,14 @@
 <div>
-  <h3>Clarity Starter Instructions:</h3>
-  <ul>
-    <li>Start by clicking Fork in the toolbar above.</li>
-    <li>Implement the problem in the new editor.</li>
-    <li>Save the result, and share the url in a GitHub or StackOverflow issue.</li>
+  <h1>Backend Demo:</h1>
+  <h3>here is the timeline of this repo</h3>
+  <ul class="clr-timeline clr-timeline-vertical">
+    <li *ngFor="let details of commits" class="clr-timeline-step">
+      <div class="clr-timeline-step-header">{{details.commit.author.date}}</div>
+      <clr-icon shape="circle" aria-label="Not started"></clr-icon>
+      <div class="clr-timeline-step-body">
+        <span class="clr-timeline-step-title">{{details.author.login}}</span>
+        <span class="clr-timeline-step-description">{{details.commit.message}}</span>
+      </div>
+    </li>
   </ul>
-
-  <ngx-md [path]="'https://github.com/mouadcherkaoui/gemo-challenge/blob/master/README.md'"></ngx-md>
 </div>
