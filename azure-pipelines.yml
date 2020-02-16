@@ -27,5 +27,5 @@ steps:
 
 
 - script: |
-    ./node_modules/.bin/firebase deploy --token $(FIREBASE_TOKEN) --only functions
+    npm run deploy:firebase
   displayName: 'deploy to firebase'
