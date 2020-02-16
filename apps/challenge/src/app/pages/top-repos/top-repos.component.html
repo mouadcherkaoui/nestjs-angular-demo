@@ -1,18 +1,18 @@
 <clr-datagrid [(clrDgSelected)]="selectedRepo">
-  <clr-dg-column></clr-dg-column>
   <clr-dg-column [clrDgField]="'name'">Name</clr-dg-column>
   <clr-dg-column [clrDgField]="'html_url'">Url</clr-dg-column>
   <clr-dg-column [clrDgField]="'description'">Description</clr-dg-column>
 
   <clr-dg-row *clrDgItems="let repo of repos" [clrDgItem]="repo">
-    <clr-dg-cell><clr-icon shape="angle-double right" size="12"></clr-icon></clr-dg-cell>
     <clr-dg-cell>{{repo.name}}</clr-dg-cell>
     <clr-dg-cell><a href="{{repo.html_url}}">{{repo.html_url}}</a></clr-dg-cell>
     <clr-dg-cell>{{repo.description}}</clr-dg-cell>
-  </clr-dg-row>
-  <clr-dg-detail *clrIfDetail='let repo'>
-    <clr-dg-detail-header>{{repo.name}}</clr-dg-detail-header>
-    <clr-dg-detail-body>{{repo.description}}</clr-dg-detail-body>
-  </clr-dg-detail>
+    <clr-dg-row-detail *clrIfExpanded [clrDgReplace]="false">
+      <clr-dg-detail-header>{{repo.name}}</clr-dg-detail-header>
+      <br>
+      <clr-dg-detail-body>{{repo.description}}</clr-dg-detail-body>
+  </clr-dg-row-detail>
 
+  </clr-dg-row>
+  <clr-dg-placeholder></clr-dg-placeholder>
 </clr-datagrid>
