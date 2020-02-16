@@ -9,15 +9,18 @@ import { TopReposComponent } from './pages/top-repos/top-repos.component';
 import { GithubService } from './services/github.service';
 import { HomeComponent } from './pages/home/home.component';
 import { SideNavComponent } from './components/side-nnav/side-nav.component';
+import { MyreposComponent } from './pages/myrepos/myrepos.component';
 
 const routes:Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
-  { path: 'toprepos', component: TopReposComponent}
+  { path: 'toprepos', component: TopReposComponent},
+  { path: 'myrepos', component: MyreposComponent}
+
 ]
 
 @NgModule({
-  declarations: [AppComponent, TopReposComponent, HomeComponent, SideNavComponent],
+  declarations: [AppComponent, TopReposComponent, HomeComponent, SideNavComponent, MyreposComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
