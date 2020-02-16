@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "nx": "nx",
+    "deploy:firebase": "firebase deploy",
     "start": "ng serve",
     "build": "ng build",
     "build:api": "nx build api",
