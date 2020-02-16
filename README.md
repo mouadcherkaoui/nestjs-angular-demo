@@ -6,78 +6,37 @@ This project was generated using [Nx](https://nx.dev).
 
 🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
 
-## Quick Start & Documentation
+## Quick Start
 
-[Nx Documentation](https://nx.dev/angular)
+**requirements:** 
+- nodejs 10
+- @nrwl/cli installed globally:
+    ``` npm i -g @nrwl/cli ```
+- firebase-tools installed globally: 
+    ``` npm i -g firebase-tools ```
 
-[10-minute video showing all Nx features](https://nx.dev/angular/getting-started/what-is-nx)
+to run the project locally run the command:
+```bash 
+  nx serve api # for the api project
+  # and 
+  nx serve challenge # for the client application
+  # since this is an angular-cli project you still have the possibility to run it using ng serve
+```
+to emulate the execution on firebase functions and hosting: 
+```bash
+  # since the firebase config rely on the dist folder content you need to build the projects through:
+  #  nx build api & nx build challenge
+  firebase serve
+``` 
 
-[Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
+## Azure DevOps CI: 
 
-## Adding capabilities to your workspace
+the project is configured to run a pipeline on azure DevOps that go through different steps from packages installation through deployment to firebase, this configuration reside in the *azure-pipelins.yml* file the only thing you need is to add variable group named *firebase-variables* with the variable *FIREBASE_TOKEN* which is required by the deployment step, to get your token you can use the firebase cli: 
+```bash 
+  firebase login:ci
+``` 
+one thing is that firebase block/limit external http requests from the functions, and then will block the calls to github Api, thus the front end project should use the GithubService to directly call the api 
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
-
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
-
-Below are some plugins which you can add to your workspace:
-
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
-
-## Generate an application
-
-Run `ng g @nrwl/angular:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are sharable across libraries and applications. They can be imported from `@gemography/mylib`.
-
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 
 ## Further help
 
