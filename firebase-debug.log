@@ -76,3 +76,28 @@
 [info] >  [Nest] 22084   - 02/16/2020, 8:51:04 AM   [NestApplication] Nest application successfully started +4ms
 [info] >  Listening at http://localhost:3333/api
 [debug] [2020-02-16T07:51:17.518Z] File C:\Users\Administrator\source\gemalto-challenge\gemography\azure-pipelines.yml changed, reloading triggers
+[debug] [2020-02-16T07:51:18.519Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-02-16T07:51:18.519Z] [worker-~diagnostic~-37ec7485-4c1c-433b-9194-eda48114b720]: FINISHING
+[debug] [2020-02-16T07:51:18.520Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-02-16T07:51:18.525Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-02-16T07:51:18.525Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-02-16T07:51:18.525Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-02-16T07:51:18.526Z] [worker-~diagnostic~-557675c2-d3ac-47cb-8639-4ea4979a58c6]: Assigning socketPath: \\?\pipe\C:\Users\Administrator\source\gemalto-challenge\gemography\25644
+[debug] [2020-02-16T07:51:18.526Z] [worker-~diagnostic~-557675c2-d3ac-47cb-8639-4ea4979a58c6]: BUSY
+[debug] [2020-02-16T07:51:18.538Z] [worker-~diagnostic~-37ec7485-4c1c-433b-9194-eda48114b720]: exited
+[debug] [2020-02-16T07:51:18.538Z] [worker-~diagnostic~-37ec7485-4c1c-433b-9194-eda48114b720]: FINISHED
+[debug] [2020-02-16T07:51:19.834Z] [runtime-status] [25644] Functions runtime initialized. {"cwd":"C:\\Users\\Administrator\\source\\gemalto-challenge\\gemography","node_version":"12.14.1"}
+[debug] [2020-02-16T07:51:19.837Z] [runtime-status] [25644] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-16T07:51:19.845Z] [runtime-status] [25644] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"C:\\Users\\Administrator\\source\\gemalto-challenge\\gemography\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-02-16T07:51:19.849Z] [runtime-status] [25644] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Administrator\\source\\gemalto-challenge\\gemography\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-02-16T07:51:19.851Z] [runtime-status] [25644] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Administrator\\source\\gemalto-challenge\\gemography\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] >  [Nest] 25644   - 02/16/2020, 8:51:22 AM   [NestFactory] Starting Nest application...
+[debug] [2020-02-16T07:51:22.371Z] [worker-~diagnostic~-557675c2-d3ac-47cb-8639-4ea4979a58c6]: IDLE
+[info] >  [Nest] 25644   - 02/16/2020, 8:51:22 AM   [InstanceLoader] HttpModule dependencies initialized +23ms
+[info] >  [Nest] 25644   - 02/16/2020, 8:51:22 AM   [InstanceLoader] AppModule dependencies initialized +1ms
+[info] >  [Nest] 25644   - 02/16/2020, 8:51:22 AM   [RoutesResolver] AppController {/api/}: +111ms
+[info] >  [Nest] 25644   - 02/16/2020, 8:51:22 AM   [RouterExplorer] Mapped {/hello, GET} route +4ms
+[info] >  [Nest] 25644   - 02/16/2020, 8:51:22 AM   [RouterExplorer] Mapped {/toprepos, GET} route +0ms
+[info] >  [Nest] 25644   - 02/16/2020, 8:51:22 AM   [RouterExplorer] Mapped {/users/:name/repos, GET} route +2ms
+[info] >  [Nest] 25644   - 02/16/2020, 8:51:22 AM   [NestApplication] Nest application successfully started +5ms
+[info] >  Listening at http://localhost:3333/api
