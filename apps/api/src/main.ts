@@ -14,12 +14,9 @@ import * as functions from 'firebase-functions'
 import { AppModule } from './app/app.module';
 import { INestApplication } from '@nestjs/common';
 
-const globalPrefix = 'api';
-const port = process.env.port || 3333;
 
 function configureAppMiddlewares(app: INestApplication){
 
-  app.setGlobalPrefix(globalPrefix);
   const options = new   DocumentBuilder()
     .setTitle('Gemo-Challenge Api')
     .setDescription('Gemography Challenge api over NestJs server')
@@ -34,7 +31,12 @@ function configureAppMiddlewares(app: INestApplication){
 }
 
 async function bootstrap() {
+  const globalPrefix = 'api';
+  const port = process.env.port || 3333;
+
   const app = await NestFactory.create(AppModule);
+
+  app.setGlobalPrefix(globalPrefix);
 
   configureAppMiddlewares(app);
 
@@ -52,7 +54,7 @@ const createFunction =
     const app = await NestFactory.create(
       AppModule,
       new ExpressAdapter(expressInstance));
-
+      
     configureAppMiddlewares(app);
 
     await app.init();
