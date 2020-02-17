@@ -15,17 +15,19 @@ import { SideNavComponent } from './components/side-nnav/side-nav.component';
 import { TopReposComponent } from './pages/top-repos/top-repos.component';
 
 import { MyreposComponent } from './pages/myrepos/myrepos.component';
+import { RepoDetailsComponent } from './pages/repo-details/repo-details.component';
 
 const routes:Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
   { path: 'toprepos', component: TopReposComponent},
+  { path: 'repos/:user/:repo', component: RepoDetailsComponent},
   { path: 'myrepos', component: MyreposComponent}
 
 ]
 
 @NgModule({
-  declarations: [AppComponent, TopReposComponent, HomeComponent, SideNavComponent, MyreposComponent],
+  declarations: [AppComponent, TopReposComponent, HomeComponent, SideNavComponent, MyreposComponent, RepoDetailsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
