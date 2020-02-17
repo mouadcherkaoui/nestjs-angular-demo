@@ -3,8 +3,6 @@ import { Controller, Get, Param } from '@nestjs/common';
 import { Message } from '@gemography/api-interfaces';
 
 import { AppService } from './app.service';
-import { GithubService } from './services/github.service';
-import { GithubCqrsService } from './services/github-cqrs.service';
 import { QueryBus } from '@nestjs/cqrs';
 import { GetReposQuery } from './queries/get-repos';
 import { GetTopReposQuery } from './queries/get-toprepos';
