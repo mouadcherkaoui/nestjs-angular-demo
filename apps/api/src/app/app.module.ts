@@ -7,16 +7,16 @@ import { GithubService } from './services/github.service';
 import { GithubCqrsService } from './services/github-cqrs.service';
 import { CqrsModule, EventBus } from '@nestjs/cqrs';
 
-import { AddRepoCommandHandler } from './commands/add-repo';
-import { AddRepoEventHandler } from './events/add-repo';
+import { AddRepoCommandHandler, LikeRepoCommandHandler } from './commands';
+import { AddRepoEventHandler, LikeRepoEventHandler } from './events';
 
 import {  GetReposQueryHandler,
   GetTopReposQueryHandler, GetRepoCommitsQueryHandler } from './queries';
 
 import { FirestoreSagas } from './services/Firestore-sagas';
 
-export const CommandHandlers = [AddRepoCommandHandler];
-export const EventHandlers =  [AddRepoEventHandler];
+export const CommandHandlers = [AddRepoCommandHandler, LikeRepoCommandHandler];
+export const EventHandlers =  [AddRepoEventHandler, LikeRepoEventHandler];
 export const QueryHandlers =  [GetReposQueryHandler, GetTopReposQueryHandler, GetRepoCommitsQueryHandler];
 
 @Module({
