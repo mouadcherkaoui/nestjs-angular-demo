@@ -24,7 +24,6 @@ export const QueryHandlers =  [GetReposQueryHandler, GetTopReposQueryHandler, Ge
   providers: [
     AppService,
     GithubService,
-    GithubCqrsService,
     ...CommandHandlers,
     ...EventHandlers,
     ...QueryHandlers,
