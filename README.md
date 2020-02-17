@@ -80,25 +80,15 @@ now we can launch the emulator:
 $: firebase serve
 ```
 
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+
+the project is configured to run a pipeline on azure DevOps that go through different steps from packages installation through deployment to firebase, this configuration reside in the *azure-pipelins.yml* file the only thing you need is to add variable group named *firebase-variables* with the variable *FIREBASE_TOKEN* which is required by the deployment step, to get your token you can use the firebase cli: 
+```bash 
+  firebase login:ci
+``` 
+one thing is that firebase block/limit external http requests from the functions, and then will block the calls to github Api, thus the front end project should use the GithubService to directly call the api 
+
 
 ## Built With
 
