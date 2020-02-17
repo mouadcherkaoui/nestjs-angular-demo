@@ -8,12 +8,22 @@ import { ExpressAdapter } from '@nestjs/platform-express';
 
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
+// import "dotenv"
+import * as admin  from 'firebase-admin';
 import * as express from 'express';
 import * as functions from 'firebase-functions'
 
 import { AppModule } from './app/app.module';
 import { INestApplication } from '@nestjs/common';
 
+const initFirebaseApp = () => admin.initializeApp({
+  credential: admin.credential.cert({
+    clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+    privateKey: process.env.FIREBASE_PRIVATE_KEY,
+    projectId: process.env.FIREBASE_PROJECT_ID
+  }),
+  databaseURL: "https://backend-challenge-e45fc.firebaseio.com"
+});;
 
 function configureAppMiddlewares(app: INestApplication){
 
@@ -34,6 +44,8 @@ async function bootstrap() {
   const globalPrefix = 'api';
   const port = process.env.port || 3333;
 
+  initFirebaseApp();
+
   const app = await NestFactory.create(AppModule);
 
   app.setGlobalPrefix(globalPrefix);
@@ -45,12 +57,14 @@ async function bootstrap() {
   });
 }
 
+
 bootstrap();
 
 const expressServer = express();
 
 const createFunction =
   async (expressInstance): Promise<void> =>{
+
     const app = await NestFactory.create(
       AppModule,
       new ExpressAdapter(expressInstance));
