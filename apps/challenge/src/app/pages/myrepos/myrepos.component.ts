@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { tap } from 'rxjs/operators'; 
 import { GithubService } from '../../services/github.service';
 import { NestApiService } from '../../services/nest-api.service';
 
@@ -23,7 +23,7 @@ export class MyreposComponent implements OnInit {
         .subscribe((v:any) => this.repos = v.items);
     }else {
       this.apiSvc.getUserRepos("mouadcherkaoui")
-        .subscribe((v:any) => this.repos = v.items);
+        .subscribe((v:any) => this.repos = v);
     }
   }
 

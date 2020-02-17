@@ -4,7 +4,6 @@
   <clr-dg-column [clrDgField]="'description'">Description</clr-dg-column>
 
   <clr-dg-row *clrDgItems="let repo of repos" [clrDgItem]="repo">
-    <clr-dg-cell><clr-icon shape="angle-double right" size="12"></clr-icon></clr-dg-cell>
     <clr-dg-cell>{{repo.name}}</clr-dg-cell>
     <clr-dg-cell><a [routerLink]='["/repos", repo.owner.login, repo.name]'>{{repo.html_url}}</a></clr-dg-cell>
     <clr-dg-cell>{{repo.description}}</clr-dg-cell>
