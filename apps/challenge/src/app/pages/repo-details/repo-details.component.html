@@ -1,12 +1,12 @@
 <div>
-  <h1>Backend Demo:</h1>
+  <h1>{{repo}}:</h1>
   <h3>Commits timeline</h3>
   <ul class="clr-timeline clr-timeline-vertical">
     <li *ngFor="let details of commits" class="clr-timeline-step">
       <div class="clr-timeline-step-header">{{details.commit.author.date}}</div>
       <clr-icon shape="circle" aria-label="Not started"></clr-icon>
       <div class="clr-timeline-step-body">
-        <span class="clr-timeline-step-title">{{details.author.name}}</span>
+        <span class="clr-timeline-step-title">{{details.commit.author ? details.commit.author.name : author}}</span>
         <span class="clr-timeline-step-description">{{details.commit.message}}</span>
       </div>
     </li>
