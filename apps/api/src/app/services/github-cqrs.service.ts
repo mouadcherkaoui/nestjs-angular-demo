@@ -2,10 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { CommandBus, EventBus, ofType} from '@nestjs/cqrs';
 
 import * as admin from 'firebase-admin';
-import { AddRepoCommand } from '../commands/add-repo';
-import { AddRepoEvent} from '../events/add-repo';
-// const firestore = admin.firestore();
-// const firestore = firebaseApp.firestore();
+import { AddRepoCommand } from '../commands';
+import { AddRepoEvent} from '../events';
+
 @Injectable()
 export class GithubCqrsService {
   /**
