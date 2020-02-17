@@ -4,7 +4,6 @@ import { Module, HttpModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { GithubService } from './services/github.service';
-import { GithubCqrsService } from './services/github-cqrs.service';
 import { CqrsModule, EventBus } from '@nestjs/cqrs';
 
 import { AddRepoCommandHandler, LikeRepoCommandHandler } from './commands';

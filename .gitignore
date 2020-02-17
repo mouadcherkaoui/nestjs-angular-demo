@@ -40,3 +40,7 @@ Thumbs.db
 
 # Environment variables File
 .env
+
+# Firebase service account credntials
+firebase/serviceAccount.json
+
