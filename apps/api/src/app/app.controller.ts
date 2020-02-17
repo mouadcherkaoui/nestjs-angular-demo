@@ -13,9 +13,7 @@ import { GetRepoCommitsQuery } from './queries/get-repo-commits';
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService,
-    private readonly ghSvc: GithubService,
-    private readonly queries: QueryBus,
-    private cqrsSvc: GithubCqrsService) {}
+    private readonly queries: QueryBus) {}
 
   @Get('hello')
   getData() {
