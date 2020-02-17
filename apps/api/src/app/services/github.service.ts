@@ -17,4 +17,9 @@ export class GithubService {
     const searchEndpoint = `${this.apiBase}/users/${name}/repos`;
     return this.http.get(searchEndpoint).pipe(map(res => res.data))
   }
+
+  getRepoCommits(user:string, repo: string){
+    const repoCommitsEndpoint = `${this.apiBase}/repos/${user}/${repo}/commits`;
+    return this.http.get(repoCommitsEndpoint).pipe(map(res => res.data));
+  }    
 }

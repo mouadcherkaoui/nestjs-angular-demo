@@ -20,4 +20,9 @@ export class NestApiService {
     const searchEndpoint = `${this.apiBase}/users/${name}/repos`;
     return this.http.get(searchEndpoint);
   }
+  
+  getRepoCommits(user:string, repo: string){
+    const repoCommitsEndpoint = `${this.apiBase}/repos/${user}/${repo}/commits`;
+    return this.http.get(repoCommitsEndpoint);
+  }  
 }

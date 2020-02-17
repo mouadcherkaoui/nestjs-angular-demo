@@ -31,6 +31,16 @@ export class AppController {
     return this.ghSvc.getUserRepos(name);
   }
 
+  /* this function represents the endpoint to get
+     the specified user repositories, it demonstrate
+     how nestjs simplify the routing patterns */
+  @Get('repos/:user/:repo/commits')
+  getRepoCommits(
+    @Param('user') user: string, 
+    @Param('repo') repo: string) {
+    
+    return this.ghSvc.getRepoCommits(user, repo);
+  }  
   /* this function returns the date 30 days ago
     in the formet required by github search api */
   private back30Days(){
