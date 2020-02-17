@@ -8,7 +8,7 @@ import { ExpressAdapter } from '@nestjs/platform-express';
 
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
-import "dotenv"
+// import "dotenv"
 import * as admin  from 'firebase-admin';
 import * as express from 'express';
 import * as functions from 'firebase-functions'
