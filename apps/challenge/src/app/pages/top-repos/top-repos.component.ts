@@ -19,7 +19,7 @@ export class TopReposComponent implements OnInit {
     private readonly apiSvc: NestApiService) { }
 
   ngOnInit(): void {
-    if(environment.production){
+    if(!environment.API_SVC_SWITCH){
       this.ghSvc.getTopRepos(this.back30Days())
         .subscribe((v:any) => this.repos = v.items);
     }else {

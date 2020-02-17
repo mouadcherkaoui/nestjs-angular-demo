@@ -18,11 +18,10 @@ export class HomeComponent implements OnInit {
     private readonly apiSvc: NestApiService) { }
   markdown: string;
   ngOnInit(): void {
-    if(environment.production){
+    if(!environment.API_SVC_SWITCH){
       this.ghSvc.getRepoCommits("mouadcherkaoui", "gemo-challenge")
         .subscribe((res: Array<any>) => {
           this.commits = res;
-          console.log(this.commits);
         })
     }else{
       this.apiSvc.getRepoCommits("mouadcherkaoui", "gemo-challenge")
