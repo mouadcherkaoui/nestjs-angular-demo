@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { CommandBus, EventBus, ofType} from '@nestjs/cqrs';
 
 import * as admin from 'firebase-admin';
-import { AddRepoCommand } from '../commands/addRepoCommand';
-import { AddRepoEvent} from '../events/addRepoEvent';
+import { AddRepoCommand } from '../commands/add-repo';
+import { AddRepoEvent} from '../events/add-repo';
 // const firestore = admin.firestore();
 // const firestore = firebaseApp.firestore();
 @Injectable()

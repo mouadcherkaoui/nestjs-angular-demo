@@ -1,4 +1,4 @@
-import { AddRepoEvent } from './addRepoEvent';
+import { AddRepoEvent } from './add-repo.event';
 import { IEventHandler, EventsHandler } from '@nestjs/cqrs';
 
 @EventsHandler(AddRepoEvent)

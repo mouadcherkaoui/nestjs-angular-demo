@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Saga, ICommand, ofType } from '@nestjs/cqrs';
 import { Observable } from 'rxjs';
-import { AddRepoEvent } from '../events/addRepoEvent';
+import { AddRepoEvent } from '../events/add-repo';
 import { map } from 'rxjs/operators';
 
 @Injectable()

@@ -1,7 +1,8 @@
 import { CommandHandler, ICommandHandler, EventBus } from '@nestjs/cqrs';
-import { AddRepoCommand } from './addRepoCommand';
 import * as admin from 'firebase-admin';
-import { AddRepoEvent } from '../events/addRepoEvent';
+
+import { AddRepoCommand } from './add-repo.command';
+import { AddRepoEvent } from '../../events/add-repo';
 
 @CommandHandler(AddRepoCommand)
 export class AddRepoCommandHandler implements ICommandHandler<AddRepoCommand> {
