@@ -31,6 +31,6 @@ export class RepoDetailsComponent implements OnInit {
           this.apiSvc.getRepoCommits(params["user"], params["repo"])
             .subscribe((res:any) => this.commits = res);
         }
-      })
+      });
   }
 }
