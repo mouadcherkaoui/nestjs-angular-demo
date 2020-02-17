@@ -25,5 +25,6 @@ export class MyreposComponent implements OnInit {
       this.apiSvc.getUserRepos("mouadcherkaoui")
         .subscribe((v:any) => this.repos = v.items);
     }
-}
+  }
 
+}
