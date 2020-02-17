@@ -1,4 +1,5 @@
 import { Injectable, HttpService } from '@nestjs/common';
+import { CommandBus} from '@nestjs/cqrs';
 import { map } from 'rxjs/operators';
 
 import { from } from 'rxjs';
