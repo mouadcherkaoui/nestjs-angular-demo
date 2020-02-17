@@ -7,6 +7,8 @@ Backend challenge project using NestJS & Angular.
 
 🔎 **This project was generated using [Nx](https://nx.dev)  *a set of Extensible Dev Tools for Monorepos.***
 
+[https://backend-challenge-e45fc.web.app/](https://backend-challenge-e45fc.web.app/)
+[https://us-central1-backend-challenge-e45fc.cloudfunctions.net/api/](https://us-central1-backend-challenge-e45fc.cloudfunctions.net/api/)
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
