@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router'; 
+import { ActivatedRoute, Params } from '@angular/router';
 
 import { GithubService } from '../../services/github.service';
 import { NestApiService } from '../../services/nest-api.service';
@@ -21,12 +21,11 @@ export class RepoDetailsComponent implements OnInit {
   markdown: string;
   ngOnInit(): void {
     this.activeRoute.params
-      .subscribe((params: Params) => {        
-        if(environment.production){
+      .subscribe((params: Params) => {
+        if(!environment.production){
           this.ghSvc.getRepoCommits(params["user"], params["repo"])
             .subscribe((res: Array<any>) => {
               this.commits = res;
-              console.log(this.commits);
             })
         }else{
           this.apiSvc.getRepoCommits(params["user"], params["repo"])

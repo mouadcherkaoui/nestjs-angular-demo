@@ -17,17 +17,13 @@ export class MyreposComponent implements OnInit {
   selectedRepo = null;
   constructor(private readonly ghSvc: GithubService,
     private readonly apiSvc: NestApiService) { }
-
   ngOnInit(): void {
-    // this.ghSvc.getTopRepos(this.back30Days())
-    //   .subscribe((v:any) => this.repos = v.items);
     if(environment.production){
       this.ghSvc.getUserRepos("mouadcherkaoui")
-        .subscribe((v:any) => this.repos = v);
+        .subscribe((v:any) => this.repos = v.items);
     }else {
       this.apiSvc.getUserRepos("mouadcherkaoui")
-        .subscribe((v:any) => this.repos = v);
+        .subscribe((v:any) => this.repos = v.items);
     }
-  }
 }
 

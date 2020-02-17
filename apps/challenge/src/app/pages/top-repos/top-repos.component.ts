@@ -6,6 +6,7 @@ import { NestApiService } from '../../services/nest-api.service';
 import { RepoItem } from '@gemography/api-interfaces';
 import { environment } from '../../../environments/environment';
 
+import { tap } from'rxjs/operators';
 @Component({
   selector: 'gemography-top-repos',
   templateUrl: './top-repos.component.html',
@@ -18,8 +19,6 @@ export class TopReposComponent implements OnInit {
     private readonly apiSvc: NestApiService) { }
 
   ngOnInit(): void {
-    // this.ghSvc.getTopRepos(this.back30Days())
-    //   .subscribe((v:any) => this.repos = v.items);
     if(environment.production){
       this.ghSvc.getTopRepos(this.back30Days())
         .subscribe((v:any) => this.repos = v.items);
