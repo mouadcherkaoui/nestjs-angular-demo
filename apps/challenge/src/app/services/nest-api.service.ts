@@ -17,8 +17,8 @@ export class NestApiService {
   }
 
   getUserRepos(name: string){
-    const searchEndpoint = `${this.apiBase}/users/${name}/repos`;
-    return this.http.get(searchEndpoint);
+    const reposEndpoint = `${this.apiBase}/users/${name}/repos`;
+    return this.http.get(reposEndpoint);
   }
   
   getRepoCommits(user:string, repo: string){

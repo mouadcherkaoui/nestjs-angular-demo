@@ -22,7 +22,7 @@ export class RepoDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.activeRoute.params
       .subscribe((params: Params) => {
-        if(!environment.production){
+        if(!environment.API_SVC_SWITCH){
           this.ghSvc.getRepoCommits(params["user"], params["repo"])
             .subscribe((res: Array<any>) => {
               this.commits = res;
@@ -31,6 +31,6 @@ export class RepoDetailsComponent implements OnInit {
           this.apiSvc.getRepoCommits(params["user"], params["repo"])
             .subscribe((res:any) => this.commits = res);
         }
-      })
+      });
   }
 }
