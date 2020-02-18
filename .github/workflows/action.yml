@@ -1,0 +1,25 @@
+name: Linux_Node_Workflow_ScmCred
+
+on:
+  push:
+    branches:
+    - feature/runas-azure-func
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@feature/runas-azure-func
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: 'run npm'
+      run: |
+        npm install
+        npm install -g @nrwl/cli
+        run run build:api --if-present
+    - uses: Azure/functions-action@v1
+      id: fa
+      with:
+        app-name: backend-challenge
+        publish-profile: ${{ secrets.SCM_CREDENTIALS }}
