@@ -19,7 +19,7 @@ jobs:
       run: |
         npm install
         npm install -g @nrwl/cli
-        run run build:api --if-present
+        npm run build:api --if-present
     - uses: Azure/functions-action@v1
       id: fa
       with:
