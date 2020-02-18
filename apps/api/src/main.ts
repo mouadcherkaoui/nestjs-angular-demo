@@ -4,7 +4,8 @@
  */
 
 import { NestFactory } from '@nestjs/core';
-import { ExpressAdapter } from '@nestjs/platform-express';
+import { AzureHttpAdapter  } from '@nestjs/azure-func-http';
+import { Context, HttpRequest } from '@azure/functions';
 
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
@@ -35,7 +36,7 @@ function configureAppMiddlewares(app: INestApplication){
     .build();
 
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('', app, document);
+  SwaggerModule.setup('api', app, document);
 
   app.enableCors();
 }
@@ -58,24 +59,23 @@ async function bootstrap() {
 }
 
 
-bootstrap();
+// bootstrap();
 
-const expressServer = express();
 
-const createFunction =
-  async (expressInstance): Promise<void> =>{
+export async function createApp(): Promise<INestApplication> {
+  const app = await NestFactory.create(AppModule);
 
-    const app = await NestFactory.create(
-      AppModule,
-      new ExpressAdapter(expressInstance));
 
-    configureAppMiddlewares(app);
+  configureAppMiddlewares(app);
 
-    await app.init();
-  };
+  app.setGlobalPrefix('api');
 
-createFunction(expressServer)
-  .then(()=> console.log("Nest is ready"))
-  .catch(err => console.error("Something went wrong!! ", err));
+  initFirebaseApp();
 
-export const api = functions.https.onRequest(expressServer);
+  await app.init();
+  return app;
+}
+
+export const run = (context: Context, req: HttpRequest) => {
+  AzureHttpAdapter.handle(createApp, context, req);
+}

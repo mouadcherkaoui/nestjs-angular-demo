@@ -29,7 +29,7 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
-    "start:azure": "npm run build && func host start"
+    "start:azure": "npm run build:api && func host start"
   },
   "private": true,
   "dependencies": {
@@ -41,7 +41,7 @@
     "@angular/platform-browser": "9.0.0",
     "@angular/platform-browser-dynamic": "9.0.0",
     "@angular/router": "9.0.0",
-    "@azure/functions": "^1.0.3",
+    "@azure/functions": "^1.2.0",
     "@clr/angular": "^2.3.7",
     "@clr/icons": "^2.3.7",
     "@clr/ui": "^2.3.7",
@@ -80,7 +80,7 @@
     "@nrwl/node": "9.0.0",
     "@nrwl/workspace": "9.0.0",
     "@types/jest": "24.0.9",
-    "@types/node": "~8.9.4",
+    "@types/node": "^8.10.59",
     "codelyzer": "~5.0.1",
     "cypress": "^3.8.2",
     "dotenv": "^6.2.0",

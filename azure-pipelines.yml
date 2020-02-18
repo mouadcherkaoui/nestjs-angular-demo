@@ -25,7 +25,10 @@ steps:
     nx build api
   displayName: 'nx build api project'
 
-
-- script: |
-    npm run deploy:firebase $(FIREBASE_TOKEN)
-  displayName: 'deploy to firebase'
+- task: AzureFunctionApp@1
+  inputs:
+    azureSubscription: 'Visual Studio Enterprise Subscription(c88875e6-420c-4b77-81f5-f3a23368e07a)'
+    appType: 'functionApp'
+    appName: 'backend-challenge'
+    package: '$(System.DefaultWorkingDirectory)/dist/**.*'
+    deploymentMethod: 'auto'
