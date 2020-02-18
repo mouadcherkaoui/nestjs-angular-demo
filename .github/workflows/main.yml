@@ -9,7 +9,9 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@feature/runas-azure-func
+    - uses: actions/checkout@master
+      with:
+        ref: feature/runas-azure-func
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
