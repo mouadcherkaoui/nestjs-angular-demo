@@ -13,7 +13,8 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./repo-details.component.css']
 })
 export class RepoDetailsComponent implements OnInit {
-
+  author: string;
+  repo: string;
   commits: Array<any>;
   constructor(private readonly ghSvc: GithubService,
     private readonly apiSvc: NestApiService,
@@ -31,6 +32,8 @@ export class RepoDetailsComponent implements OnInit {
           this.apiSvc.getRepoCommits(params["user"], params["repo"])
             .subscribe((res:any) => this.commits = res);
         }
+        this.author = params["user"];
+        this.repo = params["repo"];
       });
   }
 }
