@@ -22,13 +22,19 @@ steps:
   displayName: 'npm install packages'
 
 - script: |
+    npm install -g azure-functions-pack
+
+- script: |
     nx build api
   displayName: 'nx build api project'
+
+- script: |
+    funcpack pack -c ./dist/apps/api
 
 - task: AzureFunctionApp@1
   inputs:
     azureSubscription: 'Visual Studio Enterprise Subscription(c88875e6-420c-4b77-81f5-f3a23368e07a)'
     appType: 'functionApp'
     appName: 'backend-challenge'
-    package: '$(System.DefaultWorkingDirectory)/dist/**.*'
+    package: '$(System.DefaultWorkingDirectory)/dist/apps/api'
     deploymentMethod: 'auto'
