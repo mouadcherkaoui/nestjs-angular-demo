@@ -28,7 +28,8 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
+    "start:azure": "npm run build && func host start"
   },
   "private": true,
   "dependencies": {
@@ -40,9 +41,11 @@
     "@angular/platform-browser": "9.0.0",
     "@angular/platform-browser-dynamic": "9.0.0",
     "@angular/router": "9.0.0",
+    "@azure/functions": "^1.0.3",
     "@clr/angular": "^2.3.7",
     "@clr/icons": "^2.3.7",
     "@clr/ui": "^2.3.7",
+    "@nestjs/azure-func-http": "^0.4.2",
     "@nestjs/common": "^6.8.3",
     "@nestjs/core": "^6.8.3",
     "@nestjs/cqrs": "^6.1.0",
