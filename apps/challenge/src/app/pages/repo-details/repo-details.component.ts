@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { GithubService } from '../../services/github.service';
-import { NestApiService } from '../../services/nest-api.service';
+import { GithubService, NestApiService } from '../../services';
 
 import { environment } from '../../../environments/environment';
 import { switchMap } from 'rxjs/operators';

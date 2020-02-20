@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { GithubService } from '../../services/github.service';
-import { NestApiService } from '../../services/nest-api.service';
+import { GithubService, NestApiService } from '../../services';
 
 import { RepoItem } from '@gemography/api-interfaces';
 import { environment } from '../../../environments/environment';

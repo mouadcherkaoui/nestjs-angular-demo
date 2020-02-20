@@ -2,6 +2,6 @@ export class AddReposEvent{
   /**
    *
    */
-  constructor(public repositories: []) {
+  constructor(public repositories: any[]) {
   }
 }

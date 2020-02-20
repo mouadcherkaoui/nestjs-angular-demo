@@ -8,6 +8,9 @@
       </a>
     </div>
     <div class="header-nav">
+      <a class="nav-link nav-text" (click)="showLogin()" href="javascript: void(0);">
+        <span class="title">Login</span>
+      </a>      
       <a class="active nav-link nav-text" [routerLink]="['/']">Home</a>
     </div>
   </header>
@@ -19,4 +22,14 @@
       <gemography-side-nav></gemography-side-nav>
     </nav>
   </div>
+  <clr-modal [(clrModalOpen)]="show_login">
+    <h3 class="modal-title">I have a nice title</h3>
+    <div class="modal-body">
+        <gemography-login></gemography-login>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="show_login = false">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="show_login = false">Ok</button>
+    </div>
+  </clr-modal>
 </div>

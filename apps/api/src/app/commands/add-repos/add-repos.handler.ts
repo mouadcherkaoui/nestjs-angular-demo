@@ -13,8 +13,13 @@ export class AddReposCommandHandler implements ICommandHandler<AddReposCommand> 
 
   }
   async execute(command: AddReposCommand): Promise<any> {
-    const result = await admin.firestore().collection('repositories').add(command.repositories);
-    this.eventBus.publish(new AddReposEvent(command.repositories));
+    const batch = admin.firestore().batch();
+    command.repositories.forEach((repo: any) => {
+      const doc = admin.firestore().collection('repositories').doc(repo.name);
+      batch.create(doc, repo);
+    });
+    const result = await batch.commit();
+    this.eventBus.publish(new AddReposEvent(result));
   }
 
 }

@@ -3,13 +3,13 @@ import { CommandBus } from '@nestjs/cqrs';
 import { AddReposCommand } from '../commands';
 import { Response } from 'express';
 
-@Controller('github')
+@Controller()
 export class GithubController {
     constructor(private readonly commandBus: CommandBus){
 
     }
 
-    @Post('repos')
+    @Post('github/repos')
     postRepos(@Body() repos: [], @Res() res: Response){
       const result = this.commandBus.execute(new AddReposCommand(repos));
       console.log(result);

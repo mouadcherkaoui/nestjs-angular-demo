@@ -1,0 +1,12 @@
+<form clrForm [formGroup]="loginForm">
+  <span class="clr-sr-only">Tabbing through form inputs will trigger validation messages to be read aloud.</span>
+  <clr-input-container>
+      <label>First name</label>
+      <input clrInput type="text" formControlName="username" name="username" required />
+      <clr-control-error>We need your first name for legal compliance</clr-control-error>
+  </clr-input-container>
+  <clr-input-container>
+      <label>Password</label>
+      <input clrInput type="password" formControlName="password" name="password" required />
+  </clr-input-container>
+</form>

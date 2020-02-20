@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GithubService } from '../../services/github.service';
-import { NestApiService } from '../../services/nest-api.service';
+import { GithubService, NestApiService } from '../../services';
 
 @Component({
   selector: 'gemography-fire-repos',
@@ -8,17 +7,19 @@ import { NestApiService } from '../../services/nest-api.service';
   styleUrls: ['./fire-repos.component.css']
 })
 export class FireReposComponent implements OnInit {
-  repos: [];
+  repos: any;
   constructor(private readonly ghSvc: GithubService, 
     private readonly apiSvc: NestApiService) { }
 
   ngOnInit(): void {
     this.apiSvc.getTopRepos()
-      .subscribe((repos:[]) => this.repos = repos)
+      .subscribe((repos:any) => this.repos = repos.items);
   }
 
   pushRepos() {
-    this.apiSvc.saveRepos(this.repos);
+    const payload = this.repos.slice(0, 20).map(r => ({ name: r.name, description: r.description, url: r.html_url }));
+    console.log(payload);
+    this.apiSvc.saveRepos(payload).subscribe(r => console.log(r)); 
   }
 
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -26,8 +26,8 @@ export class NestApiService {
     return this.http.get(repoCommitsEndpoint);
   }  
 
-  saveRepos(repos: []){
-    const repoCommitsEndpoint = `${this.apiBase}/github/repos`;
-    return this.http.post(repoCommitsEndpoint, repos);
+  saveRepos(repos: any[]){
+    const reposEndpoint = `${this.apiBase}/github/repos`;
+    return this.http.post(reposEndpoint, repos);
   }  
 }
