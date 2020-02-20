@@ -16,18 +16,23 @@ import { TopReposComponent } from './pages/top-repos/top-repos.component';
 
 import { MyreposComponent } from './pages/myrepos/myrepos.component';
 import { RepoDetailsComponent } from './pages/repo-details/repo-details.component';
+import { FireReposComponent } from './pages/fire-repos/fire-repos.component';
+import { NestApiService } from './services/nest-api.service';
 
 const routes:Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
   { path: 'toprepos', component: TopReposComponent},
   { path: 'repos/:user/:repo', component: RepoDetailsComponent},
-  { path: 'myrepos', component: MyreposComponent}
+  { path: 'myrepos', component: MyreposComponent},
+  { path: 'export-repos', component: FireReposComponent}
 
 ]
 
 @NgModule({
-  declarations: [AppComponent, TopReposComponent, HomeComponent, SideNavComponent, MyreposComponent, RepoDetailsComponent],
+  declarations: [AppComponent, TopReposComponent, 
+    HomeComponent, SideNavComponent, MyreposComponent, 
+    RepoDetailsComponent, FireReposComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -36,7 +41,7 @@ const routes:Routes = [
     ClarityModule,
     NgxMdModule.forRoot()
   ],
-  providers: [HttpClient, GithubService],
+  providers: [HttpClient, GithubService, NestApiService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

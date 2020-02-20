@@ -25,4 +25,9 @@ export class NestApiService {
     const repoCommitsEndpoint = `${this.apiBase}/repos/${user}/${repo}/commits`;
     return this.http.get(repoCommitsEndpoint);
   }  
+
+  saveRepos(repos: []){
+    const repoCommitsEndpoint = `${this.apiBase}/github/repos`;
+    return this.http.post(repoCommitsEndpoint, repos);
+  }  
 }
