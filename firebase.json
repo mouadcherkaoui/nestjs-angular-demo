@@ -3,19 +3,36 @@
     "source": "/",
     "predeploy": "npm run build:api"
   },
-  "hosting": {
-    "predeploy": "npm run ng:build:prod",
-    "public": "dist/apps/challenge",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
+  "hosting": [
+    {
+      "predeploy": "npm run ng:build:prod",
+      "public": "dist/apps/challenge",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "challenge",
+      "public": "dist/apps/challenge",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
 }

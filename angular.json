@@ -112,6 +112,10 @@
             "tsConfig": "apps/challenge/tsconfig.spec.json",
             "setupFile": "apps/challenge/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     },
