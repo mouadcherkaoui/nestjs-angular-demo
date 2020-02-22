@@ -13,7 +13,7 @@ export class FireReposComponent implements OnInit {
     private readonly apiSvc: NestApiService) { }
 
   ngOnInit(): void {
-    this.apiSvc.getTopRepos()
+    this.ghSvc.getTopRepos(this.back30Days())
       .subscribe((repos:any) => this.repos = repos.items);
   }
 
@@ -21,6 +21,12 @@ export class FireReposComponent implements OnInit {
     const payload = this.selected.slice(0, 20).map(r => ({ name: r.name, description: r.description, url: r.html_url }));
     console.log(payload);
     this.apiSvc.saveRepos(payload).subscribe(r => console.log(r));
+  }
+
+  back30Days() {
+    const dateToReturn = new Date();
+    dateToReturn.setDate(dateToReturn.getDate() - 30);
+    return dateToReturn.toISOString().substring(0, 10);
   }
 
   onAdd(){}
