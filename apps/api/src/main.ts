@@ -37,7 +37,9 @@ function configureAppMiddlewares(app: INestApplication){
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('', app, document);
 
-  app.enableCors();
+  app.enableCors({
+    origin: "https://backend-challenge-e45fc.web.app/"
+  });
 }
 
 async function bootstrap() {
