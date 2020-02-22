@@ -5,22 +5,8 @@
   },
   "hosting": [
     {
-      "predeploy": "npm run ng:build:prod",
-      "public": "dist/apps/challenge",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    },
-    {
       "target": "challenge",
+      "predeploy": "npm run ng:build:prod",
       "public": "dist/apps/challenge",
       "ignore": [
         "firebase.json",
