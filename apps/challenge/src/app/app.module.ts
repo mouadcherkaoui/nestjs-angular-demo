@@ -13,11 +13,16 @@ import { ClarityModule, ClrFormsModule } from '@clr/angular';
 
 import { AppComponent } from './app.component';
 import { SideNavComponent } from './components';
-
 import { HomeComponent, MyreposComponent, RepoDetailsComponent, FireReposComponent, TopReposComponent, LoginComponent } from './pages';
-
-import { GithubService, NestApiService, AuthService } from './services';
+import { GithubService, NestApiService, AuthService, AuthGuard } from './services';
 import { environment } from '../environments/environment';
+
+import { AngularFireAuthGuard, hasCustomClaim, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
+
+const adminOnly = () => hasCustomClaim('admin');
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+const redirectLoggedInToItems = () => redirectLoggedInTo(['myrepos']);
+const belongsToAccount = (next) => hasCustomClaim(`account-${next.params.id}`);
 
 const routes:Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -25,7 +30,8 @@ const routes:Routes = [
   { path: 'toprepos', component: TopReposComponent},
   { path: 'repos/:user/:repo', component: RepoDetailsComponent},
   { path: 'myrepos', component: MyreposComponent},
-  { path: 'export-repos', component: FireReposComponent}
+  { path: 'export-repos', component: FireReposComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
+  { path: 'login', component: LoginComponent}
 ]
 
 @NgModule({
@@ -44,7 +50,7 @@ const routes:Routes = [
     ClarityModule,
     ClrFormsModule
   ],
-  providers: [HttpClient, GithubService, NestApiService, AuthService, AngularFireAuth ],
+  providers: [HttpClient, GithubService, NestApiService, AuthService, AngularFireAuth, AngularFireAuthGuard ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
